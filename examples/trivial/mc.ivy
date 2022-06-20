@@ -1,0 +1,14 @@
+#lang ivy1.7
+
+attribute method = mc
+
+type number
+interpret number -> bv[4]
+
+var test : number
+
+after init {
+  test := 1;
+}
+
+invariant test < 1
