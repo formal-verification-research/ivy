@@ -1680,6 +1680,7 @@ class ABCModelChecker(ModelChecker):
         if extraLetters.length() > 2:
             pdrString = "pdr" + extraLetters
         print "Your PDR command is as follows: " + pdrString
+        print "User inputs completed for ivy_mc. You may now ignore this program until completion."
         return [abc_path,'-c','read_aiger {}; {}; write_aiger_cex  {}'.format(aigfilename,pdrString,outfilename)]
     def scrape(self,alltext):
         return 'Property proved' in alltext
