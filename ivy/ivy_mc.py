@@ -1666,9 +1666,21 @@ class ModelChecker(object):
 class ABCModelChecker(ModelChecker):
     def cmd(self,aigfilename,outfilename):
         abc_path = os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)),'bin'),'abc')
+        print "This version of IVy has been modified. It will allow you to select modifiers for your PDR function call." 
+        print "A few common options are given below. If you need more options, run abc on the command line, then type pdr -h" 
         if verbose:
             print "abc_path: {}".format(abc_path)
-        return [abc_path,'-c','read_aiger {}; pdr; write_aiger_cex  {}'.format(aigfilename,outfilename)]
+        extraLetters = " -"
+        if ( 'y' in input("Would you like to find the shortest path? y/n ") ):
+            extraLetters = extraLetters + "q"
+        if ( 'y' in input("Would you like to use abstraction as part of PDR? y/n ") ):
+            extraLetters = extraLetters + "t"
+        extraLetters = input("If you would like to add extra commands to your PDR call, \ninput them now (e.g. -L log.txt -c ): ") + " " + extraLetters
+        pdrString = "pdr"
+        if extraLetters.length() > 2:
+            pdrString = "pdr" + extraLetters
+        print "Your PDR command is as follows: " + pdrString
+        return [abc_path,'-c','read_aiger {}; {}; write_aiger_cex  {}'.format(aigfilename,pdrString,outfilename)]
     def scrape(self,alltext):
         return 'Property proved' in alltext
 
