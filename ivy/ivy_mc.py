@@ -1671,13 +1671,13 @@ class ABCModelChecker(ModelChecker):
         if verbose:
             print "abc_path: {}".format(abc_path)
         extraLetters = " -"
-        if ( 'y' in input("Would you like to find the shortest path? y/n ") ):
+        if ( "y" in raw_input("Would you like to find the shortest path? y/n ").strip() ):
             extraLetters = extraLetters + "q"
-        if ( 'y' in input("Would you like to use abstraction as part of PDR? y/n ") ):
+        if ( "y" in raw_input("Would you like to use abstraction as part of PDR? y/n ").strip() ):
             extraLetters = extraLetters + "t"
-        extraLetters = input("If you would like to add extra commands to your PDR call, \ninput them now (e.g. -L log.txt -c ): ") + " " + extraLetters
+        # extraLetters = raw_input("If you would like to add extra commands to your PDR call, \ninput them now (e.g. -L log.txt -c ): ").rstrip() + " " + extraLetters
         pdrString = "pdr"
-        if extraLetters.length() > 2:
+        if len(extraLetters) > 2:
             pdrString = "pdr" + extraLetters
         print "Your PDR command is as follows: " + pdrString
         print "User inputs completed for ivy_mc. You may now ignore this program until completion."

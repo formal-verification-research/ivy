@@ -8,7 +8,7 @@ interpret number -> bv[4]
 var test : number
 
 after init {
-  test := 1;
+  test := 3;
 }
 
 invariant test < 1

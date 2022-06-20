@@ -3273,21 +3273,21 @@ z3::expr __z3_rename(const z3::expr &e, hash_map<std::string,std::string> &rn) {
                 impl.append("int "+ opt_main.get() + "(int argc, char **argv){\n")
                 print "This version of IVy has been modified to ask the user about run counts."
                 try:
-                    newTestItersUser = input("Input, as an integer, the number of steps for your simulation to take (default is 100): ")
-                    newTestIters = iu.Parameter("test_iters",str(newTestItersUser.strip()))
+                    newTestIters = str(raw_input("Input, as an integer, the number of steps for your simulation to take (default is 100): "))
+                    # newTestIters = iu.Parameter("test_iters",str(newTestItersUser.strip()))
                 except:
-                    newTestIters = 100
-                    print "iu Parameter Error. Defaulting to 100 steps."
+                    newTestIters = "100"
+                    print "Parameter Error. Defaulting to 100 steps."
                 try:
-                    newTestRunsUser = input("Input, as an integer, the number of full simulation runs (default is 1): ")
-                    newTestRuns = iu.Parameter("test_iters",str(newTestRunsUser.strip()))
+                    newTestRuns = str(raw_input("Input, as an integer, the number of full simulation runs (default is 1): "))
+                    # newTestRuns = iu.Parameter("test_iters",str(newTestRunsUser.strip()))
                 except:
-                    newTestRuns = 1
-                    print "iu Parameter Error. Defaulting to 1 run."
+                    newTestRuns = "1"
+                    print "Parameter Error. Defaulting to 1 run."
                 # impl.append("        int test_iters = TEST_ITERS;\n".replace('TEST_ITERS',opt_test_iters.get()))
                 # impl.append("        int runs = TEST_RUNS;\n".replace('TEST_RUNS',opt_test_runs.get()))
-                impl.append("        int test_iters = TEST_ITERS;\n".replace('TEST_ITERS',newTestIters.get()))
-                impl.append("        int runs = TEST_RUNS;\n".replace('TEST_RUNS',newTestRuns.get()))
+                impl.append("        int test_iters = TEST_ITERS;\n".replace('TEST_ITERS',newTestIters))
+                impl.append("        int runs = TEST_RUNS;\n".replace('TEST_RUNS',newTestRuns))
                 print "User inputs completed for ivy_to_cpp. You may now ignore this program until completion."
                 for p,d in zip(im.module.params,im.module.param_defaults):
 #                    impl.append('    {} p__'.format(ctypefull(p.sort,classname=classname))+varname(p)+';\n')

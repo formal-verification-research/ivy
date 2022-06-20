@@ -1,0 +1,10 @@
+#lang ivy1.7
+
+type t = {a,b,c}
+
+var x : t
+
+export action show(z:t) returns (y:t) = {
+    y := x;
+    x := z;
+}
