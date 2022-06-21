@@ -17,7 +17,7 @@ $ sudo apt-get install -f
 ```
 The first command will report missing dependencies, which will be installed by the second command.
 
-###Instructions given by Landon
+##Instructions given by Landon for Linux
 Install prerequisites:
 
 |sudo apt-get install python python-pip g++ cmake python-ply
@@ -27,7 +27,7 @@ Get our copy of IVy with its submodules:
 
 $ git clone --recurse-submodules https://github.com/formal-verification-research/ivy.git $ cd ivy
 
-Build the submodules (this takes over an hour on my machine):
+Build the submodules (this takes may take a bit):
 
 $ python build_submodules.py
 
