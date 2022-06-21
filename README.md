@@ -20,20 +20,26 @@ The first command will report missing dependencies, which will be installed by t
 ### Instructions given by Landon for Linux
 Install prerequisites:
 
-|sudo apt-get install python python-pip g++ cmake python-ply
-python-pygraphviz git python-tk tix pkg-config libssl-dev|
+```$ sudo apt-get install python python-pip g++ cmake python-ply python-pygraphviz git python-tk tix pkg-config libssl-dev```
 
 Get our copy of IVy with its submodules:
 
-$ git clone --recurse-submodules https://github.com/formal-verification-research/ivy.git $ cd ivy
+```
+$ git clone --recurse-submodules https://github.com/formal-verification-research/ivy.git
+$ cd ivy
+```
 
 Build the submodules (this takes may take a bit):
 
+```
 $ python build_submodules.py
+```
 
 Install into local Python:
 
+```
 $ sudo python setup.py install 
+```
 
 ## Windows
 The Windows binary distribution is in the form of a zip archive. Download the file `ivy.X.Y-.Windows-z86.zip`, where `X.X` is the IVy version (this will work on both 32-bit and 64 bit Intel Windows). Use Windows Explorer to extract this archive in the directory `C:\`. This should give you a directory `C:\ivy`. To use IVy in a command window, first execute this command:
