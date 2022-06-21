@@ -17,7 +17,7 @@ $ sudo apt-get install -f
 ```
 The first command will report missing dependencies, which will be installed by the second command.
 
-##Instructions given by Landon for Linux
+### Instructions given by Landon for Linux
 Install prerequisites:
 
 |sudo apt-get install python python-pip g++ cmake python-ply
