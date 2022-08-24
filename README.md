@@ -46,10 +46,24 @@ IVy relies heavily on Python2. Thus, take the following notes into consideration
 >
 >Finally, there is a C header that is missing when you try running build_submodules.py. I can't remember what the package is you have to install to get access to it, but if you google the header name it should tell you.
 
-### If `pygraphviz` fails to install
+### If `pygraphviz` and/or `ply` fail to install
 
-You may need to run the following command, in addition to the above steps:
+You may need to run the following commands, in addition to the above steps, assuming `pip` points to `pip2`
 
 ```
 sudo apt-get install python-dev
+pip install pygraphviz
+pip install ply
+```
+
+### If `pip2` gives you grief
+
+Execute the following commands (from the home directory is fine):
+```
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+sudo python2 get-pip.py
+sudo ln /usr/local/bin/pip2 /usr/bin/pip2
+pip2 --version
+sudo ln /usr/local/bin/pip /usr/bin/pip
+pip --version
 ```
