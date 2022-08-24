@@ -45,3 +45,11 @@ IVy relies heavily on Python2. Thus, take the following notes into consideration
 >Then, because IVy expects the `python` executable to be `python2`, you have to create a symlink to it. If you type `which python2`, you will probably get /usr/bin/python2. If so, you will have to make sure /usr/bin/python does not exist, and then do `sudo ln -T /usr/bin/python /usr/bin/python2`.
 >
 >Finally, there is a C header that is missing when you try running build_submodules.py. I can't remember what the package is you have to install to get access to it, but if you google the header name it should tell you.
+
+### If `pygraphviz` fails to install
+
+You may need to run the following command, in addition to the above steps:
+
+```
+sudo apt-get install python-dev
+```
